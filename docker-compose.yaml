@@ -1,0 +1,16 @@
+version: "2"
+services:
+
+  vue_app:
+       build: ./vue-app
+       ports:
+           - "8080:80"
+       volumes:
+          - .:/usr/src/vue-app
+
+  hapi_backend:
+         build: ./hapijs-final
+         ports:
+           - "3000:3000"
+         volumes:
+           - .:/usr/src/hapijs-final

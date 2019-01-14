@@ -1,0 +1,23 @@
+{
+  "name": "hapijs-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "hapi": "16.6.2",
+    "hapi-auth-jwt": "^4.0.0",
+    "hapi-auth-jwt2": "^8.2.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "4.13.4",
+    "nodemon": "^1.18.9",
+    "request": "^2.88.0"
+  }
+}
