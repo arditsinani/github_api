@@ -16,7 +16,6 @@ module.exports = {
         let query = {
             'profile.login':username
         }
-        console.log(parts)
         GithubModel.find(query,(err,user) =>{
             let result = JSON.stringify(user);
             let profileContent;
