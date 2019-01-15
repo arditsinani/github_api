@@ -16,6 +16,7 @@ module.exports = {
         let query = {
             'profile.login':username
         }
+        console.log(parts)
         GithubModel.find(query,(err,user) =>{
             let result = JSON.stringify(user);
             let profileContent;
@@ -31,8 +32,14 @@ module.exports = {
                     if(body.includes('Bad credentials')){
                         reply("Bad credentials").code(404);
                     }else{
-                        let starred_urlFull = profileContent.starred_url;
-                        let starredUrl = starred_urlFull.substring(0, starred_urlFull.indexOf('{'));
+                        let starred_urlFull;
+                        let starredUrl;
+                        if(profileContent){
+                            if(profileContent.starred_url){
+                                starred_urlFull = profileContent.starred_url;
+                                starredUrl = starred_urlFull.substring(0, starred_urlFull.indexOf('{'));
+                            }
+                        }
                         request.get(`${starredUrl}`,{
                             headers: { 'User-Agent': 'Mozilla/5.0' },
                             auth: { 
@@ -41,7 +48,7 @@ module.exports = {
                             }
                         },(error, response, body) => {
                             if(error){
-                                reply(error).code(404);
+                                reply(error);
                             }else{
                                 starredContent = JSON.parse(body);
                                 let user = {
