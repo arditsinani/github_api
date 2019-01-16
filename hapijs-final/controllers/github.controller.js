@@ -33,6 +33,7 @@ module.exports = {
                     }else{
                         let starred_urlFull;
                         let starredUrl;
+                        profileContent = JSON.parse(body);
                         if(profileContent){
                             if(profileContent.starred_url){
                                 starred_urlFull = profileContent.starred_url;
